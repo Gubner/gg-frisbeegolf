@@ -1,20 +1,20 @@
-#gg-frisbeegolf: Frisbee Golf by Gubner
+# gg-frisbeegolf: Frisbee Golf by Gubner
 A FiveM resource to add Frisbee Golf to your server. Use as Standalone or QB-Core.
 Includes custom props: Frisbees with physics, Tee Pads, and Frisbee Golf Baskets.
 Ability to customize locations of tees and holes, and even use alternative props for the hole targets.
 
-##Installation:
+## Installation:
 >Install [gg-frisbeegolf](https://github.com/Gubner) in your resources folder and ensure in your server.cfg file
 
 >Install [gg-frisbeeprops](https://github.com/Gubner) in your resources folder and ensure in your server.cfg file
 
-##Optional:
+## Optional:
 >Install [gg-frisbeegolfstand](https://github.com/Gubner) in your resources folder and ensure in your server.cfg file. If you decide not to use this ymap, update gg-frisbeegolf\config.lua Config.UsingMap.
 
-##Dependencies:
+## Dependencies:
 [PolyZone](https://github.com/mkafrin/PolyZone)
 
-##Setting up for QB-Core:
+## Setting up for QB-Core:
 
 **1. Add items to qb-core\shared\items.lua:**
 ```lua
@@ -97,7 +97,7 @@ Ability to customize locations of tees and holes, and even use alternative props
 Config.Standalone = false
 ```
 
-##Commands
+## Commands
 In Standalone, you may retrieve your frisbee from your inventory using:
 >/frisbee
 
