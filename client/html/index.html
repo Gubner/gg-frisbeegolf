@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Frisbee Golf Scorecard</title>
+		<link rel="stylesheet" href="reset.css" type="text/css">
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container" class="container">
+			<table class="scorecard">
+				<tr class="header">
+					<th class="title" colspan="11">Frisbee Golf Scorecard</th>
+				</tr>
+				<tr class="header" id="holes">
+					<th>Hole</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+					<th>TOT</th>
+				</tr>
+				<tr class="info" id="distance">
+
+				</tr>
+				<tr>
+					<td><input type="text" id="player1" placeholder="Current" class="player" disabled></input></td>
+					<td><input type="text" name="p1s" id="p1s1" placeholder=" "  class="score" disabled></input></td>
+					<td><input type="text" name="p1s" id="p1s2" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p1s" id="p1s3" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p1s" id="p1s4" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p1s" id="p1s5" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p1s" id="p1s6" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p1s" id="p1s7" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p1s" id="p1s8" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p1s" id="p1s9" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" id="p1s" placeholder=" "  class="total" tabindex="-1"></td>
+				</tr>
+				<tr>
+					<td><input type="text" id="player2" placeholder="Saved" class="player" disabled></input></td>
+					<td><input type="text" name="p2s" id="p2s1" placeholder=" "  class="score" disabled></input></td>
+					<td><input type="text" name="p2s" id="p2s2" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p2s" id="p2s3" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p2s" id="p2s4" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p2s" id="p2s5" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p2s" id="p2s6" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p2s" id="p2s7" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p2s" id="p2s8" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" name="p2s" id="p2s9" placeholder=" "  class="score" disabled></td>
+					<td><input type="text" id="p2s" placeholder=" "  class="total" tabindex="-1"></td>
+				</tr>
+				<tr class="info" id ="par">
+
+				</tr>
+				<tr class="footer">
+					<th colspan="11"><button id="save" onclick="gcard.Save()">Save</button><button id="close" onclick="gcard.Close()">Put Away</button></th>
+				</tr>
+			</table>
+		</div>
+		<script src="script.js" type="text/javascript"></script>
+	</body>
+</html>

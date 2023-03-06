@@ -1,0 +1,105 @@
+.container {
+	visibility: hidden;
+	padding: 12px;
+	color: white;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgb(255, 255, 255);
+	border: 2px solid aliceblue;
+	border-radius: 7px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.scorecard {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: sans-serif;
+	font-size: 24px;
+	text-align: center;	
+	min-width: 400px;
+}
+
+.header th {
+	padding: 12px 15px;
+	background-color: #009879;
+	color: #ffffff;
+}
+
+.info th {
+	padding: 12px 15px;
+	background-color: #34a8eb;
+	color: #ffffff;
+}
+
+.footer th {
+	padding: 12px 15px;
+	background-color: #009879;
+	color: #ffffff;
+}
+
+.title {
+	font-size: 30px;
+	text-shadow: 1px 1px black;
+}
+
+.scorecard td {
+	padding: 12px 15px;
+	border-collapse: collapse;
+	font-family: 'Century Gothic';
+	font-size: 20px;
+}
+
+.scorecard tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+.scorecard tr:nth-of-type(odd) {
+	background-color: #d6d6d6;
+}
+
+input {
+	font: inherit;
+	text-align: center;
+	border: 2px solid transparent;
+	background: transparent;
+}
+
+input:hover {
+	border: 2px solid #828282;	
+}
+
+.player {
+	width: 100px;
+}
+
+.score {
+	width: 30px;	
+}
+
+.total {
+	width: 40px;
+	pointer-events: none;	
+}
+
+button {
+	font-family: sans-serif;
+	font-size: 24px;
+	color: #828282;
+	background-color: #f2f5d0;
+	border: 2px solid #828282;
+	border-radius: 24px;
+}
+
+button:hover {
+	background-color: #00ff00;	
+}
+
+#close {
+	float: right;
+}
+
+#save {
+	float: left;
+}
