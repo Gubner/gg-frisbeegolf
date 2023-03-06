@@ -4,12 +4,12 @@ Includes custom props: Frisbees with physics, Tee Pads, and Frisbee Golf Baskets
 Ability to customize locations of tees and holes, and even use alternative props for the hole targets.
 
 ## Installation:
->Install [gg-frisbeegolf](https://github.com/Gubner) in your resources folder and ensure in your server.cfg file
+>Install [gg-frisbeegolf](https://github.com/Gubner/gg-frisbeegolf) in your resources folder and ensure in your server.cfg file
 
->Install [gg-frisbeeprops](https://github.com/Gubner) in your resources folder and ensure in your server.cfg file
+>Install [gg-frisbeeprops](https://github.com/Gubner/gg-frisbeeprops) in your resources folder and ensure in your server.cfg file
 
 ## Optional:
->Install [gg-frisbeegolfstand](https://github.com/Gubner) in your resources folder and ensure in your server.cfg file. If you decide not to use this ymap, update gg-frisbeegolf\config.lua Config.UsingMap.
+>Install [gg-frisbeegolfstand](https://github.com/Gubner/gg-frisbeegolfstand) in your resources folder and ensure in your server.cfg file. If you decide not to use this ymap, update gg-frisbeegolf\config.lua Config.UsingMap.
 
 ## Dependencies:
 [PolyZone](https://github.com/mkafrin/PolyZone)
