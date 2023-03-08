@@ -683,7 +683,7 @@ function PlayFrisbeeGolf()
 				end
 				local FrisbeePos = GetEntityCoords(Frisbee)
 				if HoleZones[CurrentHole] then
-					if HoleZones[CurrentHole]:isPointInside(FrisbeePos) then
+					if HoleZones ~= nil and HoleZones[CurrentHole] ~= nil and FrisbeePos ~= nil and HoleZones[CurrentHole]:isPointInside(FrisbeePos) then
 						if not IsEntityAttachedToAnyPed(Frisbee) then
 							if FrisbeeStopped and FrisbeeOut then
 								if CurrentThrow == 1 then
