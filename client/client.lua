@@ -419,14 +419,14 @@ function AimFrisbee()
 					local AimRefYp = GetObjectOffsetFromCoords(StartPos, StartHead, 0.0, 1.0 * IndicatorScale, 0.0)
 					local AimRefYn = GetObjectOffsetFromCoords(StartPos, StartHead, 0.0, -1.0 * IndicatorScale, 0.0)
 					local AimRefZ = GetObjectOffsetFromCoords(StartPos, StartHead,  -1.0 * IndicatorScale * math.cos(math.rad(Pitch)), 0.0, IndicatorScale * math.sin(math.rad(Pitch)))
-					DrawLine(StartPos, AimRefX, 255, 255, 255, 200)
-					DrawLine(StartPos, AimRefYp, 255, 255, 255, 200)
-					DrawLine(StartPos, AimRefYn, 255, 255, 255, 200)
-					DrawLine(StartPos, AimRefZ, 255, 255, 255, 200)
-					DrawPoly(StartPos, VelRef, PitchRef, 255, 255, 255, 51) -- right side
-					DrawPoly(StartPos, PitchRef, VelRef, 255, 255, 255, 51) -- left side
-					DrawPoly(StartPos, VelRef, RollRef, 255, 255, 255, 51) -- top neg / bottom pos
-					DrawPoly(StartPos, RollRef, VelRef, 255, 255, 255, 51) -- top pos / bottom neg
+					DrawLine(StartPos, AimRefX, Config.IndicatorColorsR, Config.IndicatorColorsG, Config.IndicatorColorsB, Config.IndicatorColorsA)
+					DrawLine(StartPos, AimRefYp, Config.IndicatorColorsR, Config.IndicatorColorsG, Config.IndicatorColorsB, Config.IndicatorColorsA)
+					DrawLine(StartPos, AimRefYn, Config.IndicatorColorsR, Config.IndicatorColorsG, Config.IndicatorColorsB, Config.IndicatorColorsA)
+					DrawLine(StartPos, AimRefZ, Config.IndicatorColorsR, Config.IndicatorColorsG, Config.IndicatorColorsB, Config.IndicatorColorsA)
+					DrawPoly(StartPos, VelRef, PitchRef, Config.IndicatorColorsR, Config.IndicatorColorsG, Config.IndicatorColorsB, Config.IndicatorColorsA2) -- right side
+					DrawPoly(StartPos, PitchRef, VelRef, Config.IndicatorColorsR, Config.IndicatorColorsG, Config.IndicatorColorsB, Config.IndicatorColorsA2) -- left side
+					DrawPoly(StartPos, VelRef, RollRef, Config.IndicatorColorsR, Config.IndicatorColorsG, Config.IndicatorColorsB, Config.IndicatorColorsA2) -- top neg / bottom pos
+					DrawPoly(StartPos, RollRef, VelRef, Config.IndicatorColorsR, Config.IndicatorColorsG, Config.IndicatorColorsB, Config.IndicatorColorsA2) -- top pos / bottom neg
 				end
 				if not DoesEntityExist(Frisbee) then
 					Aiming = false
@@ -579,7 +579,9 @@ function ThrowFrisbee(drop)
 							if HoleZones[k] then
 								if HoleZones[k]:isPointInside(FrisbeePos) then
 									DrawScaleformMessage("In the Hole!", "", 3000, false)
-									PlaySoundFrontend(-1, "Goal", "DLC_HEIST_HACKING_SNAKE_SOUNDS", true)
+									if Config.ExtraSounds then
+										PlaySoundFrontend(-1, "Goal", "DLC_HEIST_HACKING_SNAKE_SOUNDS", true)
+									end
 								end
 							end
 						end
@@ -689,12 +691,16 @@ function PlayFrisbeeGolf()
 								if CurrentThrow == 1 then
 									local SoundId = GetSoundId()
 									DrawScaleformMessage("Hole in One!", "Hole: " .. CurrentHole, 6000, true)
-									PlaySoundFromCoord(SoundId, "CROWD_CHEER_MASTER", PlayerPos, 0, false, 50.0, true)
-									Wait(5000)
-									StopSound(SoundId)
+									if Config.ExtraSounds then
+										PlaySoundFromCoord(SoundId, "CROWD_CHEER_MASTER", PlayerPos, 0, false, 50.0, true)
+										Wait(5000)
+										StopSound(SoundId)
+									end
 								else
 									DrawScaleformMessage("Hole " .. CurrentHole .. " Complete!", "Score: " .. CurrentThrow, 6000, false)
-									PlaySoundFrontend(-1, "Goal", "DLC_HEIST_HACKING_SNAKE_SOUNDS", true)
+									if Config.ExtraSounds then
+										PlaySoundFrontend(-1, "Goal", "DLC_HEIST_HACKING_SNAKE_SOUNDS", true)
+									end
 								end
 								Scorecard[CurrentHole] = CurrentThrow
 								SetBlipColour(TeeBlips[CurrentHole], 40)
@@ -779,7 +785,7 @@ function DrawRestrictedZone()
 		Citizen.CreateThread(
 			function()
 				while (PlayingFrisbeeGolf and Aiming) do
-					DrawMarker(25, RestrictedPos, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.StrictDist * 2, Config.StrictDist * 2, Config.StrictDist * 2, 255, 255, 255, 51, false, false, 2, nil, nil, true)
+					DrawMarker(25, RestrictedPos, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.StrictDist * 2, Config.StrictDist * 2, Config.StrictDist * 2, Config.IndicatorColorsR, Config.IndicatorColorsG, Config.IndicatorColorsB, Config.IndicatorColorsA2, false, false, 2, nil, nil, true)
 					Citizen.Wait(0)
 				end
 			end
@@ -1077,10 +1083,16 @@ Citizen.CreateThread(
 						Message = ""
 						RunMessage = false
 						PlayFrisbeeGolf()
-						PlaySoundFrontend(-1, "Start", "DLC_HEIST_HACKING_SNAKE_SOUNDS", true)
+						if Config.ExtraSounds then
+							PlaySoundFrontend(-1, "Start", "DLC_HEIST_HACKING_SNAKE_SOUNDS", true)
+						end
+						DrawNativeTextMessage("You have started a round of Frisbee Golf", 3000)
 					else
 						EndFrisbeeGolf()
-						PlaySoundFrontend(-1, "LOOSE_MATCH", "HUD_MINI_GAME_SOUNDSET", true)
+						if Config.ExtraSounds then
+							PlaySoundFrontend(-1, "LOOSE_MATCH", "HUD_MINI_GAME_SOUNDSET", true)
+						end
+						DrawNativeTextMessage("You have ended your round of Frisbee Golf", 3000)
 					end
 				end
 			end

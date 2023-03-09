@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Standalone = true -- false enables qb-core useable item and shop
+Config.Standalone = false -- false enables qb-core useable item and shop
 Config.UsingMap = true -- true if using optional gg-frisbeegolfstand map
 
 --default aim values
@@ -15,10 +15,17 @@ Config.AimReset = false -- true will reset to default values every new throw
 Config.UseIndicator = true
 Config.IndicatorScale = 0.5 -- 0.1 to 1.0
 Config.IndicatorPointerLength = 10.0 -- 1.0 to 10.0+ (note: scaled with above)
+Config.IndicatorColorsR = 255
+Config.IndicatorColorsG = 255
+Config.IndicatorColorsB = 255
+Config.IndicatorColorsA = 200 -- alpha for lines
+Config.IndicatorColorsA2 = 51 -- alpha for shaded polys and marker
 
 Config.Strict = true -- must thrown from tee / last landing spot of frisbee while playing frisbee golf
 Config.StrictDist = 1.5 -- radius of zone
 Config.StuckDist = 1.0 -- does not include z
+
+Config.ExtraSounds = true -- false turns off event sounds
 
 Config.FrisbeeGolfTargets = { -- For z positions obtained from Player Position, subtract 1.2. Sounds at https://pastebin.com/eeFc5DiW
 	[1] = {Prop ='prop_feeder1_cr', Sound = {'CLOSED', 'DOOR_GARAGE'}, Offset = vector3(0.0, 0.0, 1.0), Rotation = vector3(180.0, 0.0, 0.0), ZoneOffset = vector3(0.0, 0.0, 0.0), ZoneRadius = 1.0}, -- easiest (inverted)
