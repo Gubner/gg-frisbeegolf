@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Standalone = false -- false enables qb-core useable item and shop
+Config.Standalone = true -- false enables qb-core useable item and shop
 Config.UsingMap = true -- true if using optional gg-frisbeegolfstand map
 
 --default aim values
